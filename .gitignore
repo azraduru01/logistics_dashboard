@@ -5,3 +5,9 @@ __pycache__/
 .streamlit/
 .idea/
 .DS_Store
+.venv/
+.env.*
+!.env.example
+backups/
+*.sql.gz
+*.dump
