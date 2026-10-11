@@ -2,12 +2,18 @@
 config.py — Merkezi yapılandırma dosyası
 """
 
+import os
+from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).with_name(".env"), override=False)
+
 # ─── MySQL ───────────────────────────────────────────────
 MYSQL_CONFIG = {
-    "host": "localhost",
-    "user": "root",
-    "password": "azraduru5312",
-    "database": "lojisticks",
+    "host": os.getenv("MYSQL_HOST", "localhost"),
+    "user": os.getenv("MYSQL_USER", "root"),
+    "password": os.getenv("MYSQL_PASSWORD", ""),
+    "database": os.getenv("MYSQL_DATABASE", "lojisticks"),
 }
 
 MYSQL_TABLE          = "delivery_analysis"
